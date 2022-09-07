@@ -1,0 +1,26 @@
+.myColor {
+  background: linear-gradient(to right, #f83600 50%, #f9d423 150%);
+}
+
+.myBtn {
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  background: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+  border: none;
+}
+
+.myBtn:hover {
+  background: linear-gradient(to right, #495aff 0%, #0acffe 100%)
+}
+
+.myHr {
+  height: 2px !important;
+  border-radius: 100px;
+}
+
+.myLinkBtn {
+  border-radius: 100px;
+  width: 50%;
+  border: 2px solid #fff;
+}

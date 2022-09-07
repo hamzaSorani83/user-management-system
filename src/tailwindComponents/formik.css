@@ -1,0 +1,136 @@
+.FormWrapper {
+  @apply flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full gap-6 mb-24
+}
+.Form {
+  @apply xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12  md:mb-0
+}
+.Form-input, .Form-textarea {
+  @apply block text-gray-700 bg-white rounded w-full px-4 py-2 text-xl font-normal bg-clip-padding border-2 border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none mb-2
+}
+.Form-radio {
+  @apply mr-2 w-4 h-4 bg-gray-100 border-gray-300 dark:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500
+}
+.Form-select {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+  focus-visible:outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+}
+.Form-date {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus-visible:outline-none
+}
+
+.Form-Blue .Form-input,
+.Form-Blue .Form-textarea,
+.Form-Blue .Form-select,
+.Form-Blue .Form-date,
+.Input-Blue {
+  @apply focus:border-blue-600 focus:ring-blue-500
+}
+.Form-Blue .Form-radio ,
+.Form-Blue .Form-checkbox {
+  @apply accent-blue-600
+}
+.Form-Purple .Form-input,
+.Form-Purple .Form-textarea,
+.Form-Purple .Form-select,
+.Form-Purple .Form-date,
+.Input-Purple {
+  @apply focus:border-purple-600 focus:ring-purple-600
+}
+
+.Form-Purple .Form-radio ,
+.Form-Purple .Form-checkbox {
+  @apply accent-purple-500
+}
+.Form-Success .Form-input,
+.Form-Success .Form-textarea,
+.Form-Success .Form-select,
+.Form-Success .Form-date,
+.Input-Success {
+  @apply focus:border-green-500 focus:ring-green-500
+}
+.Form-Success .Form-radio ,
+.Form-Success .Form-checkbox {
+  @apply accent-green-600
+}
+.Form-Danger .Form-input,
+.Form-Danger .Form-textarea,
+.Form-Danger .Form-select,
+.Form-Danger .Form-date,
+.Input-Danger {
+  @apply focus:border-red-600 focus:ring-red-600
+} 
+.Form-Danger .Form-radio ,
+.Form-Danger .Form-checkbox {
+  @apply accent-red-500
+}
+.Form-Warning .Form-input,
+.Form-Warning .Form-textarea,
+.Form-Warning .Form-select,
+.Form-Warning .Form-date,
+.Input-Warning {
+  @apply focus:border-yellow-500 focus:ring-yellow-500
+}
+.Form-Warning .Form-radio ,
+.Form-Warning .Form-checkbox {
+  @apply accent-yellow-400
+}
+.Form-Info .Form-input,
+.Form-Info .Form-textarea,
+.Form-Info .Form-select,
+.Form-Info .Form-date,
+.Input-Info {
+  @apply focus:border-blue-400 focus:ring-blue-400
+}
+.Form-Info .Form-radio ,
+.Form-Info .Form-checkbox {
+  @apply accent-blue-400
+}
+.Form-Light .Form-input,
+.Form-Light .Form-textarea,
+.Form-Light .Form-select,
+.Form-Light .Form-date,
+.Input-Light {
+  @apply focus:border-gray-200 focus:ring-gray-200
+}
+.Form-Light .Form-radio ,
+.Form-Light .Form-checkbox {
+  @apply accent-gray-400
+}
+.Form-Dark .Form-input,
+.Form-Dark .Form-textarea,
+.Form-Dark .Form-select,
+.Form-Dark .Form-date,
+.Input-Dark {
+  @apply focus:border-gray-800 focus:ring-gray-800
+}
+.Form-Dark .Form-radio ,
+.Form-Dark .Form-checkbox {
+  @apply  accent-gray-800
+}
+
+.Input-group {
+  @apply flex w-full h-12
+}
+.Input-group-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+button[type=submit] {
+  @apply mt-2
+}
