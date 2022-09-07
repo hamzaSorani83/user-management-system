@@ -1,10 +1,10 @@
 .Alert {
   @apply  rounded-lg py-3 px-6 text-base my-2 
 }
-.AlertPrimary {
+.AlertBlue {
   @apply bg-blue-100 text-blue-700 
 }
-.AlertSecondary {
+.AlertPurple {
   @apply bg-purple-100 text-purple-700 
 }
 .AlertSuccess {

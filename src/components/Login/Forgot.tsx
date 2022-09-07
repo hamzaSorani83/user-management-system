@@ -1,34 +1,24 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { Button } from "../Formik/FormControl/Controls";
 import FormControl from "../Formik/FormControl/FormControl";
 import Form from "../Formik/FormComponent";
 
-interface ILogin {
+interface IForgot {
   email: string;
-  password: string;
-  rem: string;
 }
 
-interface IProps {
-  setIsForgot: Dispatch<SetStateAction<boolean>>;
-}
-
-const Signin: React.FC<IProps> = ({setIsForgot}) => {
-  
-  const initialValues: ILogin = {
+const Forgot = () => {
+  const initialValues: IForgot = {
     email: '',
-    password: '',
-    rem: '',
   }
   
   const validationSchema = Yup.object({
     email: Yup.string().email("Enter a valid email!").required("Required!"),
-    password: Yup.string().required("Required!"),
   })
   
-  const onSubmit = (data: ILogin, actions: any) => {
+  const onSubmit = (data: IForgot, actions: any) => {
     console.log(data);
     actions.resetForm();
     actions.setSubmitting(true);
@@ -37,9 +27,10 @@ const Signin: React.FC<IProps> = ({setIsForgot}) => {
   return (
     <div className="Card rounded-left py-9 px-6 grow-1.4">
       <h1 className="text-center text-3xl font-bold text-blue-600 tracking-tight">
-        Sign in to Account
+        Forgot Your Password
       </h1>
-      <hr className="my-1" />
+      <hr className="my-3" />
+      <p className="text-gray-500 my-3 text-center">To reset your password. enter the registered e-mail address and we will send you the rest instructions on your e-mail!</p>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -52,28 +43,12 @@ const Signin: React.FC<IProps> = ({setIsForgot}) => {
                 name="email" placeholder="E-Mail"
                 className="w-full"
               />
-              <FormControl
-                control="input" type="password"
-                name="password" placeholder="Password"
-                className="w-full"
-              />
-            <div className="flex justify-between">
-              <FormControl
-                control="checkbox" name="rem"
-                options={[{ key: "remember me", value: "rememberMe" }]}
-              />
-              <div className="forgot">
-                <button type="button" onClick={() => setIsForgot(true)}>
-                  Forgot Passowrd?
-                </button>
-              </div>
-            </div>
             <Button
               type="submit" varient="blue"
               id="login-btn" className="w-full capitalize text-lg myBtn"
               disabled={formik.isSubmitting || !formik.isValid}
             >
-              sign in
+              Reset Password
             </Button>
           </Form>
         )}
@@ -82,4 +57,4 @@ const Signin: React.FC<IProps> = ({setIsForgot}) => {
   );
 };
 
-export default Signin;
+export default Forgot;

@@ -10,7 +10,7 @@ const Input: React.FC<IProps> = ({ name }) => {
     <ErrorMessage name={name} >
       {
         message => {
-          return <a href={'#' + name} className="Alert AlertIndigo font-medium mt-3 underline" >
+          return <a href={'#' + name} className="Alert AlertDanger font-medium mt-3 underline" >
             {message}
           </a>
         }
