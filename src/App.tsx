@@ -6,7 +6,7 @@ import { Login } from './components'
 function App() {
   return (
     <div className="App">
-      <div className='container'>
+      <div className='container mx-auto px-6'>
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Login />} />
