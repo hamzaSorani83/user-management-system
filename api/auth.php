@@ -8,8 +8,15 @@
       return true;
     }
     
+    public function login($email) {
+      $sql = 'SELECT email, password FROM users WHERE email=:email AND deleted!=1';
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute(['email' => $email]);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+    } 
+    
     public function user_exists($email) {
-      $sql = "SELECT email FROM users WHERE email=:email";
+      $sql = "SELECT email FROM users WHERE email=:email AND deleted!=1";
       $stmt = $this->conn->prepare($sql);
       $stmt->execute(['email' => $email]);
       $result = $stmt->fetch(PDO::FETCH_ASSOC);

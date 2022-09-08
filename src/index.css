@@ -51,4 +51,10 @@ p {
   border-radius: 100px;
   width: 50%;
   border: 2px solid #fff;
+  transition: all .3s;
+}
+
+.myLinkBtn:hover {
+  background: white;
+  color: #f83600;
 }

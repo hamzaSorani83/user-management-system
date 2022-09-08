@@ -10,10 +10,10 @@ export interface IProps {
 
 export interface IAlert {
   varient: IVarient;
-  message: string;
+  message: ReactNode;
 }
 
-const Button: React.FC<IProps> = ({varient, className, children, ...rest}) => {
+const Alert: React.FC<IProps> = ({varient, className, children, ...rest}) => {
   const alertVarient = "Alert" + varient[0].toUpperCase() + varient.substring(1);
   className = ['Alert', alertVarient , className].join(" ");
   
@@ -24,4 +24,4 @@ const Button: React.FC<IProps> = ({varient, className, children, ...rest}) => {
   )
 }
 
-export default Button
+export default Alert

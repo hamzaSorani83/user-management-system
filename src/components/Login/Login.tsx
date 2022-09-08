@@ -1,34 +1,33 @@
-import React, { useState } from "react";
-import { Signin, Signup, Forgot } from "../";
-
+import React, { useEffect, useState } from "react";
+import { Signin, Signup } from "../";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [isSignup, setIsSignup] = useState(true);
-  const [isForgot, setIsForgot] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
+  const navigate = useNavigate();
+  
+  const getUser = () => {
+    if (localStorage.getItem('email')) {
+      navigate('/home');
+    }
+  }
+  
+  useEffect(() => {
+    getUser();
+  }, [])
   
   return (
     <div className="h-screen flex justify-center m-7 md:m-0" id="login-box">
       <div className="w-full lg:w-8/12 my-auto">
-        <div className={["flex flex-wrap custom-shadow custom-card", isSignup || isForgot ? "flex-row-reverse" : ''].join(' ')}>
-          { isForgot ? <Forgot /> : isSignup ? <Signup setIsSignup={setIsSignup} /> : <Signin setIsForgot={setIsForgot} />}
+        <div className={["flex flex-wrap custom-shadow custom-card", isSignup ? "flex-row-reverse" : ''].join(' ')}>
+          { isSignup ? <Signup /> : <Signin />}
           <div className="Card flex flex-col justify-center rounded-right myColor p-4">
-            {isForgot
-              ? <>
-                <h1 className="text-center text-4xl font-bold text-white">Reset Password</h1>
-                <hr className="my-3 bg-gray-300 myHr" />
-                <button className="py-2 self-center font-bold mt-12 myLinkBtn text-white capitalize" id="register-link" onClick={() => setIsForgot(false)}>
-                  Back
-                </button>
-              </>
-              : <>
-                <h1 className="text-center text-4xl font-bold text-white">Hello Friends!</h1>
-                <hr className="my-3 bg-gray-300 myHr" />
-                <p className="text-center font-bold text-gray-200">Enter your personal details and start your journey with us!</p>
-                <button className="py-2 self-center font-bold mt-12 myLinkBtn text-white capitalize" id="register-link" onClick={() => setIsSignup(!isSignup)}>
-                  { isSignup ? 'sign in' : 'sign up'}
-                </button>
-                </>
-            }
+              <h1 className="text-center text-4xl font-bold text-white">Hello Friends!</h1>
+              <hr className="my-3 bg-gray-300 myHr" />
+              <p className="text-center font-bold text-gray-200">Enter your personal details and start your journey with us!</p>
+              <button className="py-2 self-center font-bold mt-12 myLinkBtn text-white capitalize" id="register-link" onClick={() => setIsSignup(!isSignup)}>
+                { isSignup ? 'sign in' : 'sign up'}
+              </button>
           </div>
         </div>
       </div>

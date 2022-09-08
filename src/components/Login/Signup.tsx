@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { Button } from "../Formik/FormControl/Controls";
@@ -7,6 +7,7 @@ import Form from "../Formik/FormComponent";
 import axios from '../../axiosInstance/axios'
 import { Alert } from '../'
 import { IAlert } from "../Alert/Alert";
+import { useNavigate } from "react-router-dom";
 
 interface IRegister {
   name: string;
@@ -16,14 +17,15 @@ interface IRegister {
 }
 
 interface IProps {
-  setIsSignup: Dispatch<SetStateAction<boolean>>;
 }
 
 
-const SignUp: React.FC<IProps> = ({ setIsSignup }) => {
+const SignUp: React.FC<IProps> = () => {
   const [alert, setAlert] = useState<IAlert>({ varient: 'blue', message: '' })
   const [showAlert, setShowAlert] = useState(false);
-  const [buttonText, setButtonText] = useState('sign up')
+  const [buttonText, setButtonText] = useState('sign up');
+  const navigate = useNavigate();
+  
   const initialValues: IRegister = {
     name: '',
     email: '',
@@ -40,23 +42,29 @@ const SignUp: React.FC<IProps> = ({ setIsSignup }) => {
   
   const onSubmit = (data: IRegister, actions: any) => {
     setButtonText('please wait...')
-    axios.post('http://localhost/react/user-management-system/api/action.php?action=register', data)
+    axios.post('action.php?action=register', data)
       .then(res => {
         if (res.data !== 'register') {
-          console.log(res.data)
           setShowAlert(true);
-          setAlert({varient: res.data.varient, message: res.data.message})
+          if (res.data.varient && res.data.message) {
+            setAlert({ varient: res.data.varient, message: res.data.message })
+          } else {
+            console.log(res.data)
+            setAlert({varient: 'danger', message: 'Something went wrong! try again later!'})
+          }
         } else {
           setShowAlert(true);
-          setAlert({varient: 'blue', message: 'Record created successfully!'})
+          setAlert({ varient: 'blue', message: 'Record created successfully!' });
+          localStorage.setItem('email', data.email);
+          navigate('/home');
+          actions.resetForm();
+          actions.setSubmitting(true);
         }
       }).catch(err => {
         console.log(err);
       }).finally(() => {
         setButtonText('sign up');
       })
-    actions.resetForm();
-    actions.setSubmitting(true);
   }
   
   return (
@@ -96,7 +104,7 @@ const SignUp: React.FC<IProps> = ({ setIsSignup }) => {
             <Button 
               type="submit" varient="blue"
               id="register-btn" className="w-full capitalize text-lg"
-              disabled={formik.isSubmitting || !formik.isValid}
+              disabled={!formik.isValid}
             >
               {buttonText}
             </Button>

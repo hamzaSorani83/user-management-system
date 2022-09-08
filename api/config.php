@@ -21,8 +21,8 @@
       return $input;
     }
     
-    public function showMessage($varient, $message) {
-      return ['varient' => $varient, 'message' => $message];
+    public function showMessage($varient, $message, $messageLink=null) {
+      return ['varient' => $varient, 'message' => $message, 'messageLink' => $messageLink];
     }
   }
 ?>
