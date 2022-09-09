@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { IVarient } from '../Formik/FormComponent';
+import { IVarient } from '../../Tools/Formik/FormComponent';
 
 export interface IProps {
   varient: IVarient;

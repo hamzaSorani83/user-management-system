@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from 'yup';
-import { Button } from "../Formik/FormControl/Controls";
-import FormControl from "../Formik/FormControl/FormControl";
-import Form from "../Formik/FormComponent";
+import { Button, FormControl, Form } from '../Tools/Formik'
+
 import axios from '../../axiosInstance/axios'
-import { Alert } from '../'
-import { IAlert } from "../Alert/Alert";
+import { Alert } from '../Tools'
+import { IAlert } from "../Tools/Alert/Alert";
 import { useNavigate } from "react-router-dom";
 
 interface IRegister {

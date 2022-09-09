@@ -1,4 +1,4 @@
-import { Input, Textarea, Select, Radio, Checkbox, Date, Label, ErrorMessage } from './Controls'
+import { Input, Textarea, Select, Radio, Checkbox, Date, Label, ErrorMessage } from '../'
 
 interface IProps{
   control: 'input' | 'textarea' | 'select' | 'radio' | 'checkbox' | 'date';
